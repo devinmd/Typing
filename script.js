@@ -52,7 +52,7 @@ function init() {
   let request = new XMLHttpRequest();
   request.open("GET", 'assets/' + wordList + ".txt", false);
   request.send(null);
-  wordsList = request.responseText.split("\r\n");
+  wordsList = request.responseText.split("\n");
 
   // create info toggles
   for (let i = 0; i < Object.keys(infoDisplay).length; i++) {
