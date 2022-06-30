@@ -1,0 +1,238 @@
+
+:root {
+  --main-bg: #181B23;
+	--secondary-bg:#21232B;
+	--light-bg:#2A2B33;
+  --red: #e04754;
+  --green:#4DB780;
+}
+
+body {
+  background-color: var(--main-bg);
+  color: #a2a2a2;
+  margin: 0;
+}
+
+* {
+  font-family: consolasFont;
+}
+
+@font-face {
+  font-family: consolasFont;
+  src: url(assets/consolas.ttf);
+}
+
+#top button:hover,
+#top h1:hover {
+  transition: 100ms;
+  text-decoration: underline #e8e8e8;
+  color: #e8e8e8;
+}
+#top h1 {
+  display: inline;
+  color: #c7c7c7;
+  cursor: pointer;
+}
+
+#content {
+  margin: 0;
+  height: 100%;
+  margin-top: 32px;
+}
+
+#typing {
+  margin: 0;
+  margin-top: 128px;
+  line-height: 28px;
+}
+
+#stats {
+  margin-top: 32px;
+}
+
+#words {
+  margin-bottom: 16px;
+}
+h3 {
+  margin: 0;
+  color: #c7c7c7;
+  font-weight: 10;
+}
+
+#typingInput {
+  opacity: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  border: none;
+}
+
+.letter {
+  display: inline;
+  color: #dadada;
+  font-size: 28px;
+  z-index: 1000;
+  transition: 100ms;
+}
+
+.textCorrect {
+  color: var(--green);
+}
+.textIncorrect {
+  color: var(--red);
+}
+.underlineCorrect {
+  text-decoration: underline var(--green);
+}
+.underlineIncorrect {
+  text-decoration: underline var(--red);
+}
+.highlightCorrect {
+  background-color: var(--green);
+  color: var(--main-bg);
+}
+.highlightIncorrect {
+  background-color: var(--red);
+  color: var(--main-bg);
+}
+
+#infoDisplay p {
+  display: block;
+  line-height: 20px;
+}
+
+#infoDisplay .postTest {
+  display: inline;
+  margin-right: 16px;
+}
+
+#infoDisplay span {
+  line-height: 36px;
+}
+
+#caret {
+  height: 26px;
+  position: absolute;
+  margin: 0;
+  z-index: -1;
+  transform: translateY(6px);
+}
+
+#settings {
+  margin-top: 32px;
+  line-height: 26px;
+  width: auto;
+}
+#settings p {
+  margin: 0;
+}
+
+p {
+  display: inline;
+  margin: 0;
+}
+
+.word {
+  display: inline;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  color: #c7c7c7;
+  margin: 0;
+  border: none;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+#infoToggles {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 136px 156px 200px;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+#infoToggles div {
+  display: inline-block;
+  line-height: 14px;
+}
+
+select {
+  padding: 3px 6px;
+  border-radius: 3px;
+  outline: none;
+  background-color: var(--secondary-bg);
+  border: none;
+  color: #dadada;
+}
+h3 {
+  margin-top: 24px;
+}
+
+#nextTest {
+  font-size: 32px;
+  width: 48px;
+  transition: 100ms;
+  height: 32px;
+}
+
+#nextTest:hover {
+  transform: translateX(4px);
+}
+
+.settingsCategory {
+  margin-left: 24px;
+}
+
+#footer {
+  height: 128px;
+  margin-top: 64px;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+#footer p {
+  cursor: default;
+}
+
+#footer button {
+  cursor: pointer;
+  background-color: var(--secondary-bg);
+  color: #c7c7c7;
+  border-radius: 4px;
+  margin-left: 32px;
+  transition: 150ms;
+  padding: 4px 8px;
+}
+
+#footer button:hover {
+  background-color: var(--light-bg);
+}
+
+#footer button:active {
+  transition: 50ms;
+  transform: translateY(2px);
+}
+
+input[type=range] {
+  transform: translateY(4px);
+}
+input[type=checkbox]{
+	transform: translateY(1px)
+}
+
+.settingsCategory button {
+  height: 36px;
+  padding-right: 12px;
+  padding-left: 12px;
+  background-color: var(--secondary-bg);
+  border-radius: 4px;
+  transition: 200ms;
+}
+.settingsCategory button:hover {
+  background-color: var(--light-bg);
+}

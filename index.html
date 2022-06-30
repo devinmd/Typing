@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="title" content="Typing Test" />
+        <meta name="description" content="Simple typing test" />
+	<link rel="stylesheet" href="style.css" />
+	<title>typing</title>
+</head>
+
+<body>
+	<img id="caret" src="assets/caret1.png">
+
+	<div id="content" style='display: none;'>
+
+		<div id='top'>
+			<h1 onclick='toggle("typing"); startTest();'>typing</h1>
+			<button style='margin-left: 16px;display: inline;' onclick="toggle('settings')">settings</button>
+			<button style='margin-left: 16px;display: inline;' onclick="toggle('stats')">stats</button>
+		</div>
+
+		<div id="settings" style='display: none;'>
+
+			<h3>test info</h3>
+			<div class='settingsCategory'>
+				<p>word count:</p>
+				<input id='wordCountSlider' type="range" min="1" max="10" value="0" oninput="updateWordCount(this)">
+				<p id="wordCountDisplay"></p>
+				<br>
+				<p>word list:</p>
+				<select id='changeWordList' oninput='changeWordList(this)'>
+					<option value="eng100">english 100</option>
+					<option value="eng1000">english 1000</option>
+					<option value="eng3000">english 3000</option>
+				</select>
+			</div>
+
+
+			<h3>general</h3>
+			<div class='settingsCategory'>
+
+				<p>content width:</p>
+				<input oninput='updateContentWidth(this)' id='contentWidthSlider' type="range" min="3" max="9" value="0">
+				<p id="contentWidthDisplay"></p>
+
+				<br>
+
+				<p>decimal points:</p>
+				<input id="decimalAmountSlider" type="range" min="0" value='0' max='6' oninput="updateDecimalAmount(this.value)">
+				<p id="decimalAmountDisplay"></p>
+
+			</div>
+			<h3>info display:</h3>
+			<div class='settingsCategory'>
+				<div id="infoToggles"></div>
+			</div>
+			<h3>text</h3>
+			<div class='settingsCategory'>
+				<p>correct letters:</p>
+				<button onclick='correct="textCorrect"' style='color: #4FBC82'>text</button>
+				<button onclick='correct="highlightCorrect"'><span style='background-color: #4FBC82; color: #20222b'>highlight</span></button>
+				<button onclick='correct="underlineCorrect"' style='text-decoration: underline #4FBC82'>underline</button>
+
+				<br>
+
+				<p>incorrect letters:</p>
+				<button onclick='incorrect="textIncorrect"' style='color: #E04754;'>text</button>
+				<button onclick='correct="highlightCorrect"'><span style='background-color: #E04754; color: #20222b''>highlight</span></button>
+				<button onclick=' incorrect="underlineIncorrect"'style=' text-decoration: underline #E04754'>underline</button>
+
+				<br>
+
+				<p>corrected letters:</p>
+				<button onclick='corrected="none"'>none</button>
+				<button onclick='correct="highlightCorrect"'><span style='background-color: #E04754;color: #20222b''>highlight</span></button>
+				<button onclick=' corrected="underlineIncorrect"'style=' text-decoration: underline #E04754'>underline</button>
+			</div>
+			<h3>caret</h3>
+			<div class="settingsCategory">
+				<p>caret style:</p>
+				<button onclick="document.getElementById('caret').src = 'assets/caret1.png'" style="background-image: url('assets/caret1.png'); transform: translateY(12px); width: 32px; background-position: center; background-repeat: no-repeat;background-size: auto 20px;"></button>
+				<button onclick="document.getElementById('caret').src = 'assets/caret2.png'" style="background-image: url('assets/caret2.png'); transform: translateY(12px); width: 32px; background-position: center; background-repeat: no-repeat;background-size: auto 20px;"></button>
+				<button onclick="document.getElementById('caret').src = 'assets/caret3.png'" style="background-image: url('assets/caret3.png'); transform: translateY(12px); width: 32px; background-position: center; background-repeat: no-repeat;background-size: auto 20px;"></button>
+				<button onclick="document.getElementById('caret').src = 'assets/caret4.png'" style="background-image: url('assets/caret4.png'); transform: translateY(12px); width: 32px; background-position: center; background-repeat: no-repeat;background-size: auto 20px;"></button>
+				<button onclick="document.getElementById('caret').src = 'assets/caret6.png'" style="background-image: url('assets/caret6.png'); transform: translateY(12px); width: 32px; background-position: center; background-repeat: no-repeat;background-size: auto 20px;"></button>
+				<button onclick="document.getElementById('caret').src = 'assets/caret7.png'" style="background-image: url('assets/caret7.png'); transform: translateY(12px); width: 32px; background-position: center; background-repeat: no-repeat;background-size: auto 20px;"></button>
+				<button onclick="document.getElementById('caret').src = 'assets/caret5.png'">none</button>
+
+				<br>
+				<p style="margin-top: 12px">smooth caret:</p>
+				<input style="margin-top: 12px" id='smoothCaretSlider' type="range" min="0" value="0" max='8' oninput="changeSmoothCaret(this)">
+				<p style="margin-top: 12px" id="smoothCaretDisplay"></p>
+
+			</div>
+		</div>
+
+		<div id="stats" style='display: none;'>
+			<h3>stats</h3>
+		</div>
+
+		<div id="typing">
+			<div id="words" onclick="document.getElementById('typingInput').focus()"></div>
+			<div id='infoDisplay'></div>
+			<input onfocusin='focused("in")' onfocusout='focused("out")' oninput='typed()' autocomplete="off" type="text" id="typingInput" />
+		</div>
+
+	</div>
+	<div id="footer">
+		<button onclick="startTest();">LSHIFT</button>
+		<p>new test</p>
+		<button onclick="toggle('typing')">1</button>
+		<p>typing</p>
+		<button onclick="toggle('settings')">2</button>
+		<p>settings</p>
+		<button onclick="toggle('stats')">3</button>
+		<p>stats</p>
+	</div>
+	<script src="config.js"></script>
+
+	<script src="script.js"></script>
+	<script>init()</script>
+
+</body>
+
+</html>

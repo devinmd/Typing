@@ -1,0 +1,38 @@
+page open
+
+  init
+
+    fetch word lists
+    start test
+
+      generate sentence
+        create elements
+
+on type
+
+  check if moved forward or backward
+
+    forward
+
+      change currentletter and currentword
+        if you reached the end
+      
+      move caret
+        get next element, insert caret before init
+
+    backward
+      change currentletter and currentword
+      
+
+colors
+
+everything else: #a2a2a2
+h2, h3, button, footer keys: #c7c7c7
+main typing text & selects: #dadada
+h2, h3, button hover: #e8e8e8
+
+
+
+info = info generated during the test, cleared after the test
+
+stats = long term info

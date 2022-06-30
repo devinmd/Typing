@@ -1,0 +1,49 @@
+# typing
+### bugs
+- if the post test info is displayed and use goes to settings then back to typing page the test info disappears and during test info shows
+- ctr+a and deleting all text input doesn't send caret back to start, this is because the deleting text function goes by individual letters and not bulk\
+- sometimes when test ends, sentence gets removed but post test info doesn't show and live info update loop doesn't stop
+- caret appears on other pages due to there not being a check of which page you're on when moving/showing caret
+- caret is flying around on typing page due to it moving when new tests are started
+### todo
+- post test info
+	- add line breaks in the post test sentence display, will go off screen if it's a longer text
+  - show errors in word list
+- tests
+	- align sentence to middle but words to the left
+  - progess bar during test
+	- reset display info when new test is started
+- settings
+	- style range bars
+  - style checkboxes
+  - themes
+  - caret colors
+		- dynamically create the carets ?
+  - save settings in localstorage
+- other
+	- pace caret, use the set wpm to get characters per second and get a delay in ms between character presses then do a loop with that delay to move the caret through the sentence
+	- fix footer positioning
+  - save error word & letter lists and provide more information about them
+	- rewrite error system
+	- save stats in localstorage
+	- starting new test when not on typing page sends caret to top left on other pages
+	- organize changelog
+### changelog
+- live info updates every 100ms during a test
+- caret shape options
+- rewrote entire caret system
+  - fixed line break bug
+  - fixed bug when caret got offset by deleting all of the text
+- added separate pages for stats and settings
+- added second paragraph element for displaying what the range selector is currently at 
+- changed css for settings page
+- implemented css variables
+- added footer
+- keyboard shortcuts for new test, typing page, settings, and stats page
+- added smooth caret in settings
+- word list selector
+- range bars in settings are in bigger increments
+- clicking on the name of an info display toggle will toggle the checkbox
+- replaced text color drop-downs with buttons
+- added css transition on sentence letters
+- changed background colors palette
